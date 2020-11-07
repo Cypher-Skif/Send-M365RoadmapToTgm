@@ -53,7 +53,7 @@ $SortedMessages = $messages | Select-Object link, @{L='Status';E={$($_.category[
 
 
 foreach($message in $SortedMessages){
-    $PubDate = $message.PubDate
+    [dateTime]$PubDate = $message.PubDate
     $Status = $message.Status
     if ($PubDate -ge $ChecktTime -and $PubDate -le $CurrentTime) {
         $MessageTitle = '*' + $($message.title) + '*'
